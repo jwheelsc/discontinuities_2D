@@ -13,8 +13,9 @@ for i = 1:length(allSets)
     a = allSets{i};
     if length(a(:,1))>1
         allSets2{count} = a;
-        count = count+1;
+
     end
+    count = count+1;
 end
 
 %%
@@ -76,11 +77,8 @@ end
 %% if you deleted lines outside an inner bounding box, then you'll need to 
 %%% get rid of them as:
 
-prompt = 'Did you delete lines outside the window? Y/N'
-ind = inputdlg(prompt)
-
-if strcmp(ind,'Y')
-    jnt = {}
+runPOBB = 1
+if runPOBB == 1
     count = 1
     for i = 1:length(allSets)
 
@@ -105,5 +103,21 @@ if strcmp(ind,'Y')
     end
 end
 
+%% if you want to ensure that all sets go from left to right, the uncomment 
+%%% this section
+
+
+% crack_arr = {}
+% for i = 1:length(allSets)
+%     crack = allSets{i}
+%     if crack(1,1)>crack(end,1)
+%         crack_arr{i} = crack(end:-1:1,:)
+%     else
+%         crack_arr{i} = crack
+%     end
+% end
+% allSets = crack_arr
+% save('output\setsFile.mat','allSets')
+    
 
 

@@ -99,8 +99,8 @@ hold on
 plot(intPts(:,1),intPts(:,2),'r.','markersize',12)
 axis equal
 savePDFfunction(intFig,'figures/intersections')
-totalInts = length(intPts(:,1))
-save('output/results','totalInts','-append')
+totalints = length(intPts(:,1))
+save('output/results','totalints','-append')
 
 
 
