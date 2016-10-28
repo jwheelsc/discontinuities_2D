@@ -7,14 +7,21 @@ load('output\setsFile.mat')
 setNum = 'allSets'
 
 %%% num_h is the number of scanlines per unit area
-num_h = 40 
+
+
+prompt = 'How many scanline per unit area?'
+ind = inputdlg(prompt);
+num_h = str2num(ind{1});
+
 h = sqrt(area_xy*(scales.^2))/num_h
 hS = num2str(num_h)
 
 %%% here you can control the interval at which your angle changes in
 %%% degreed, just make sure you dont land on 90 degrees.
 intAng = 5
-thetaA = [1:intAng:186];
+lowerA = 1
+upperA = 176
+thetaA = [lowerA:intAng:upperA];
 
 slFig = figure('units','normalized','outerposition',[0 0 1 1])
 for i = 1:length(allSets)

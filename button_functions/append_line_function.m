@@ -1,4 +1,4 @@
-function append_line_function(source, callbackdata)
+function append_line_function(source, userdata, callbackdata)
 
 load('output\setsFile.mat')
 

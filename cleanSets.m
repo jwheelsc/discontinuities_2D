@@ -3,7 +3,7 @@
 
 load('output\setsFile.mat')
 load('output\windowLims.mat')
-
+close all
 %% delete points outside the bounding box
 % clear all
 
@@ -22,13 +22,35 @@ SN = allSets2
 
 figure('units','normalized','outerposition',[0 0 1 1])
 subplot(2,1,1)
+
+[msfc,ws,ol,image_name,xlms,ylms] = msfcFunc();
+
+lxl = xlms(1);
+uxl = xlms(2);
+lyl = ylms(1);
+uyl = ylms(2);
+
+if isempty(xlms) == 0
+    hold on
+    plot([lxl lxl],[lyl uyl],'r-','linewidth',2)
+    hold on
+    plot([uxl uxl],[lyl uyl],'r-','linewidth',2)
+    hold on
+    plot([lxl uxl],[lyl lyl],'r-','linewidth',2)
+    hold on
+    plot([lxl uxl],[uyl uyl],'r-','linewidth',2)
+end
+
+
 for i = 1:length(SN)
     hold on
     plot(SN{i}(:,1),SN{i}(:,2))
 end
+set(gca,'Ydir','reverse')
 axis equal
 ylW = get(gca,'ylim')
 xlW = get(gca,'xlim')
+title('Before clipping traces')
 
 for i = 1:length(SN)
     jnt = SN{i};
@@ -60,8 +82,21 @@ for i = 1:length(SN)
     hold on
     plot(SN{i}(:,1),SN{i}(:,2))
 end
+
+if isempty(xlms) == 0
+    hold on
+    plot([lxl lxl],[lyl uyl],'r-','linewidth',2)
+    hold on
+    plot([uxl uxl],[lyl uyl],'r-','linewidth',2)
+    hold on
+    plot([lxl uxl],[lyl lyl],'r-','linewidth',2)
+    hold on
+    plot([lxl uxl],[uyl uyl],'r-','linewidth',2)
+end
 xlim(xlW)
 ylim(ylW)
+set(gca,'Ydir','reverse')
+title('After clipping traces')
 
 prompt = 'Do the changes look good? Y/N'
 ind = inputdlg(prompt)
@@ -89,20 +124,9 @@ if strcmp(ind,'Y')
             count = count+1;
         end
     end
+    allSets = jnt
+    save('output\setsFile.mat','allSets')
 
-    figure()
-    for i = 1:length(jnt)
-        hold on
-        plot(jnt{i}(:,1),jnt{i}(:,2))
-    end
-
-    prompt = 'Do the changes look good? Y/N'
-    ind = inputdlg(prompt)
-
-    if strcmp(ind,'Y')
-        allSets = jnt
-        save('output\setsFile.mat','allSets')
-    end
 end
 
 

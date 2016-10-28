@@ -1,6 +1,6 @@
 %% in this section you can find the number of joint sets that intersect the edges of the domain
 
-edgeFig = figure
+edgeFig = figure(1)
 critical_d = 0.1/msfc
 
 for i = 1:length(allSets)
@@ -78,6 +78,8 @@ ljT = ljLw+ljR+ljU+ljL;
 
 etf = ([ljLw,ljR,ljU,ljL,ljT]'/length(allSets))*100;
 et = [ljLw,ljR,ljU,ljL,ljT]';
+set(gca,'Ydir','reverse')
+
 
 save('output\results.mat','etf','et','-append')
 savePDFfunction(edgeFig,'figures/touching_edges')

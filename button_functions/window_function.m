@@ -1,17 +1,14 @@
-function window_function(source, callbackdata)
+function window_function(source,userdata, callbackdata)
 %DRAW_LINE_FUNCTION Summary of this function goes here
 %   Detailed explanation goes here
 
 load('output\setsFile.mat')
-ol = source.UserData.ol
-msfc = source.UserData.msfc
-ws = source.UserData.ws
+[msfc,ws,ol,image_name,xlms,ylms] = msfcFunc();
 
 val = source.Value
-source.String(val)
 
-xlm = source.UserData.xl
-ylm = source.UserData.yl
+xlm = xlms
+ylm = ylms
 
 if strcmp(source.String(val),'FULL IMAGE')
     load('output/fullLims.mat')

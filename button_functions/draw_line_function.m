@@ -1,4 +1,4 @@
-function draw_line_function(source, callbackdata)
+function draw_line_function(source,userdata, callbackdata)
 
 load('output\setsFile.mat');
 
@@ -6,9 +6,7 @@ loops = 'yes'
 save('output\looping.mat','loops')
 
 count = 1;
-while count < 100
-    
-    load('output\looping.mat')
+while count < 500
     
     if strcmp(loops,'yes')
         h = imfreehand;

@@ -61,18 +61,18 @@ fs2 = 12
         mxy = max(m_fq);
         el = find(m_fq==mxy);
         mxx = thetaA(el);
-        text(mxx,mxy,num2str(mxy),'fontsize',fs2);
+%         text(mxx,mxy,num2str(mxy),'fontsize',fs2);
         
         mny = min(m_fq);
         el = find(m_fq==mny);
         mnx = thetaA(el);
-        text(mnx,mny,num2str(mny),'fontsize',fs2);
+%         text(mnx,mny,num2str(mny),'fontsize',fs2);
     hold on
 %     h1a = plot(thetaA,fq,'r--o')
         my = max(fq);
         el = find(fq==my);
         mx = thetaA(el);
-        text(mx,my,num2str(my),'fontsize',fs2)
+%         text(mx,my,num2str(my),'fontsize',fs2)
     
     text(0.7,0.1,['mean = ' num2str(mean_fq)],'units','normalized','fontsize',12)
     ylabel('Joint frequency (\lambda)')

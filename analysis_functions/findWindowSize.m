@@ -24,4 +24,4 @@ length_x = (maxx-minx)/(scales);
 length_y = (maxy-miny)/(scales);
 area_xy = (length_x*length_y);
 
-save(['output/results.mat'],'length_x','length_y','area_xy')
+save(['output/results.mat'],'length_x','length_y','area_xy','-append')

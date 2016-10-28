@@ -1,12 +1,11 @@
-function topLeft_button(source, callbackdata)
+function topLeft_button(source, userdata, callbackdata)
    
 load('output\setsFile.mat')
-ol = source.UserData.ol
-msfc = source.UserData.msfc
-ws = source.UserData.ws
 
-xlm = source.UserData.xl
-ylm = source.UserData.yl
+[msfc,ws,ol,image_name,xlms,ylms] = msfcFunc();
+xlm = xlms;
+ylm = ylms;
+
 xlim([xlm(1) xlm(1)+(ws/msfc)])
 ylim([ylm(1) ylm(1)+(ws/msfc)])
     

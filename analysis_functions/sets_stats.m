@@ -1,4 +1,4 @@
-fDist = figure('units','normalized','outerposition',[0 0 1 1])
+fDist = figure(2)
 
 %%% here you can chnage the number of bins
 bins = 60;
