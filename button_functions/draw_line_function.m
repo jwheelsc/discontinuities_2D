@@ -28,5 +28,10 @@ while count < 500
     
     load('output\looping.mat')
     
+    load('output\setNum.mat')
+    load('output\setsFile.mat')
+    metaDat = [metaDat,setNumber]
+    save('setsFile.mat','metaDat')
+    
 end
 

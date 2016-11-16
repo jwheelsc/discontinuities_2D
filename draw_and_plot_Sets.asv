@@ -12,8 +12,7 @@ ls3 = strcmp(ls2,'setsFile.mat')
 
 if sum(ls3)<1
     allSets = []
-    metaDat = []
-    save('output\setsFile.mat','allSets','metaDat')
+    save('output\setsFile.mat','allSets')
 end
 
 %%
@@ -108,11 +107,6 @@ Pix_SS = get(0,'screensize');
 %%% here is the x ofset for the pushbottons, which will depend on your
 %%% screen size, so you'll have to play around with it.
 xButLoc = Pix_SS(3)*(9/10);
-
-popup = uicontrol('Style', 'pushbutton',...
-   'String', 'set 1',...
-   'Position', [xButLoc 100 80 50],...
-   'Callback', @label_set_function); 
 
 popup = uicontrol('Style', 'pushbutton',...
    'String', 'create trace',...
