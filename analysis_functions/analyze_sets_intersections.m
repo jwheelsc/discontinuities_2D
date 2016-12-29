@@ -57,6 +57,9 @@ for i1 = 1:length(allSets)-1
         y2l = repmat([j2y(1:end-1)]',[l1,1]);
         y2u = repmat([j2y(2:end)]',[l1,1]);
  
+        if isempty(b2m) && isempty(b1m)
+            continue
+        end
         
         xi = (b2m-b1m)./(m1m-m2m);
         yi = m2m.*xi+b2m;
